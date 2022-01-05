@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import Helloworld from '../components/HelloWorld.vue'
 import BookList from '../views/books/List.vue'
 import OrderCreate from '../views/orders/Edit.vue'
+import OrderList from '../views/orders/List.vue'
 import UserList from '../views/users/List.vue'
 import Login from '../views/Login.vue'
 
@@ -39,6 +40,11 @@ const routes = [
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/order-list',
+      name: 'OrderList',
+      component: OrderList
     }
 ]
 

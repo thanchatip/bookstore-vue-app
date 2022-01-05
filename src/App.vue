@@ -15,7 +15,7 @@
           <router-link class="nav-link" :to="{name: 'BookList'}">Book List</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" :to="{name: 'OrderCreate'}">Order</router-link>
+          <router-link class="nav-link" :to="{name: 'OrderList'}">Order</router-link>
         </li>
         <li class="nav-item">
           <router-link class="nav-link" :to="{name: 'UserList'}">User</router-link>
