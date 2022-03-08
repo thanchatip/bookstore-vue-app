@@ -1,64 +1,46 @@
 <template>
-  <div class="my-4 banner">
-    <header> 
-      <h1><b>Homepage</b></h1>
-      <p>Welcome to our bookstore</p>
-    </header>
-    <div class="my-4 card">
-  <div class="card-header">
-    <h2> Popular Books </h2>
-  </div>
-    <ol class="list-group list-group-numbered">  
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">Subheading</div>
-        Cras justo odio
-      </div>
-      <span class="badge bg-primary rounded-pill">14</span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">Subheading</div>
-        Cras justo odio
-      </div>
-      <span class="badge bg-primary rounded-pill">14</span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto">
-        <div class="fw-bold">Subheading</div>
-        Cras justo odio
-      </div>
-      <span class="badge bg-primary rounded-pill">148</span>
-    </li>
-    </ol>
-  </div>
-
+  <div class="mt-75 layout-column justify-content-center align-items-center">
+    <section class="layout-row align-items-center justify-content-center">
+      <input
+        type="text"
+        class="large"
+        placeholder="Name"
+        dataTestid="appInput"
+        v-model="dataTestid.appInput"
+      />
+      <button type="submit" class="ml-30" data-testid="submitButton">
+        Add Customer
+      </button>
+    </section>
+    <ul class="styled mt-50" data-testid="customer-list">
+      <!--      Use this section for rendering each customer as it contains the requisite test-id required for tests to pass-->
+      <li
+        class="slide-up-fade-in"
+        :dataTestid="`listItem${index}`"
+        :key="`listItem${index}`"
+      >{{dataTestid}}</li>
+    </ul>
   </div>
 </template>
+
 <script>
 export default {
   data() {
     return {
-      
+      dataTestid: {
+          listItem: ["a", "b"],
+          appInput: "",
+          submitButton: (appInput) => {
+            if (appInput.trim() === "") {
+              this.listItem = [];
+            } else {
+              this.appInput.push(appInput);
+            }
+        },
+      },
     };
   },
-
 };
 </script>
-<style>
-tr:hover {
-  cursor: pointer;
-}
-.banner h1, h2, p{
-  text-align: center;
-  font-family: "Raleway";
-}
 
-.card {
-  width: auto;
-  margin: auto;
-  background: #cfcfcf;
-  transition: all 0.3s;
-}
-</style>
-
+<style scoped></style>
